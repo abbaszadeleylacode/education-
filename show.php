@@ -58,13 +58,16 @@ include "db_config.php";
 ?>
 
 </head>
+
 <body>
 <div class="container">
 <div class="row">
 <h1>Qeydiyyatdan  keçən tələbələr</h1>
-<a href="login.php" class="btn btn-primary " >Logout</a>
-<a href="register.php" class="btn btn-success" >Qeydiyyat</a>
+<a href="register.php" class="btn btn-primary " >Logout</a>
 
+<?php
+if ($user[0]->type) {
+	?>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -81,9 +84,8 @@ include "db_config.php";
   </thead>
 
   <tbody>
-<?php
-if ($user[0]->type) {
 
+<?php
 
 while ($row  = mysqli_fetch_assoc($query)){
 ?>
@@ -107,9 +109,54 @@ while ($row  = mysqli_fetch_assoc($query)){
 	<?php
      } 
 
+ }else{
+
+
+  ?>
+</head>
+
+  <h1 style="color: orange">Şəxsi məlumatlar</h1>
+  <div class="col-md-6 col-md-offset-3" style="margin-top: 50px; ">
+
+  <h2>Ad - <?= $user[0]->name ?></h2>
+  <h2>Istifadəçi adı - <?= $user[0]->username ?></h2>
+  <h2>Email ünvani - <?= $user[0]->adress ?></h2>
+   <h2>Mobil nömrə - <?= $user[0]->anumber ?></h2>
+   <h2>İxtisas qrupu - <?= $user[0]->student_group ?></h2>
+
+
+<form action="" method="post">
+  <input class="btn btn-default create" name="back" type="submit" value="Back" >
+</form>
+  </div>
+
+</div>
+
+</body>
+</html>
+<?php
+
+if(isset($_POST["back"])) {
+  
+  header("Location:login.php");
+}
+
+
  }
 
 ?>
+<!-- 777777777777777777777777777777777777777777777777777777777777777777777 -->
+
+
+
+
+
+
+
+
+
+
+
 </tbody>
 </table>
 </div>

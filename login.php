@@ -26,7 +26,7 @@ if (isset($_SESSION['check'])) {
 			<div class="row">
 				<div class="loginForm col-md-4 col-md-offset-4">
 					<img src="no-image.png" class="img-circle">
-					<h3>Tələbə girişi</h3>
+					<h3>Giriş</h3>
 <form class="form-inline" action="" method="POST">
   <div class="form-group">
   <label >Username:</label>

@@ -9,9 +9,9 @@
 	$db_name = "test";
 	$db_connection = mysqli_connect($host,$user_name,$password,$db_name);
     $query= mysqli_query($db_connection,$sql);
-		if ($query==false) {
-			echo "qosulmadi"; 
-		}else{
-			echo "qosuldu";
-		}
+		// if ($query==false) {
+		// 	echo "qosulmadi"; 
+		// }else{
+		// 	echo "qosuldu";
+		// }
 ?>
