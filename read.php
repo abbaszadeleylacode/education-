@@ -18,7 +18,7 @@
 $id=$_GET['id'];
 
 
- $sql="SELECT id,name,adress,anumber,password,username,student_group FROM test2 WHERE id=$id";
+ $sql="SELECT id,name,adress,anumber,password,username,student_group FROM students WHERE id=$id";
 
  $query=mysqli_query($db_connection,$sql);
 

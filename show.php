@@ -62,8 +62,7 @@ include "db_config.php";
 <body>
 <div class="container">
 <div class="row">
-<h1>Qeydiyyatdan  keçən tələbələr</h1>
-<a href="register.php" class="btn btn-primary " >Logout</a>
+
 
 <?php
 if ($user[0]->type) {
@@ -79,17 +78,21 @@ if ($user[0]->type) {
         <th>istifadəçi adı</th>
          <th>İxtisas qrupu</th>
          <th>Status</th>
-         <th>Redakte</th>
+         <th>Redaktə</th>
     </tr>
   </thead>
 
   <tbody>
-
+<h1>Qeydiyyatdan  keçən tələbələr</h1>
+<a href="register.php" class="btn btn-primary " >Logout</a>
 <?php
+$query= mysqli_query($db_connection,$sql);
 
 while ($row  = mysqli_fetch_assoc($query)){
+
 ?>
 <tr>
+
 <?php
 
 	foreach ($row as $key => $value) {
@@ -99,6 +102,7 @@ while ($row  = mysqli_fetch_assoc($query)){
 	}
 	
 	?>
+
 	<td> <a href="read.php?id=<?=$row['id']?>" class="read">Ətraflı</a>
 	     <a href="update.php?id=<?=$row['id']?>" class="update">Yenilə</a>
 	     <a href="delete.php?id=<?=$row['id']?>" class="delete">İstifadəçini Sil</a>

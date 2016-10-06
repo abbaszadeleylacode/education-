@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 	$new_student_group = $_POST['forstudent_group'];
 
     $id=$_GET['id'];
-	$sql = "UPDATE `test2` SET `name`='$new_name',`adress`='$new_adress',`anumber`='$new_anumber',`password`='$new_password',`username`='$new_username',`student_group`='$new_student_group' WHERE id = '$id' ";
+	$sql = "UPDATE `students` SET `name`='$new_name',`adress`='$new_adress',`anumber`='$new_anumber',`password`='$new_password',`username`='$new_username',`student_group`='$new_student_group' WHERE id = '$id' ";
 	
 	$query = mysqli_query($db_connection,$sql);
 	if ($query) {

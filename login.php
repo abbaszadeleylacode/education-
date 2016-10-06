@@ -18,7 +18,7 @@ if (isset($_SESSION['check'])) {
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -43,7 +43,7 @@ if (isset($_SESSION['check'])) {
 </div>
 </div>
 <?php
-$pdo=new PDO('mysql:host=127.0.0.1;dbname=test','root','');
+$pdo=new PDO('mysql:host=127.0.0.1;dbname=education','root','');
 if (isset($_POST['submit'])) {
 $user=$_POST['user'];
 $pass=$_POST['pass'];
@@ -51,7 +51,7 @@ $pass=$_POST['pass'];
 
 
 if (!empty($user)&&!empty($pass)) {
-	$query=$pdo->prepare("select * from test2 where username='$user' and password='$pass'");
+	$query=$pdo->prepare("select * from students where username='$user' and password='$pass'");
 	$query->execute();
 
 	$answer=$query->fetchAll(PDO::FETCH_OBJ);
