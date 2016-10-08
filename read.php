@@ -25,7 +25,7 @@ $id=$_GET['id'];
 
  $row=mysqli_fetch_assoc($query);
 
-echo $row['name'];
+
   ?>
 </head>
 <body>
@@ -34,12 +34,58 @@ echo $row['name'];
   <div class="col-md-6 col-md-offset-3" style="margin-top: 50px; ">
 
   <div class="list-group ">
-  <a href="#" class="list-group-item "><h3><b>Ad</b> - <?php echo $row['name']; ?></h3></a>
-  <a href="#" class="list-group-item"><h3><b>Istifadəçi adı</b> - <?php echo $row['username']; ?></h3> </a>
-  <a href="#" class="list-group-item"><h3><b>Email ünvani</b> - <?php echo $row['adress']; ?></h3></a>
-  <a href="#" class="list-group-item"><h3><b>Mobil nömrə</b> - <?php echo $row['anumber']; ?></h3> </a>
-  <a href="#" class="list-group-item"><h3><b>İxtisas qrupu</b> - <?php echo $row['student_group']; ?></h3></a>
-  <a href="#" class="list-group-item"><h3><b>Parol</b> - <?php echo $row['password']; ?></h3></a>
+  <a href="#" class="list-group-item "><h4><b>Ad</b> - <?php echo $row['name']; ?></h4></a>
+  <a href="#" class="list-group-item"><h4><b>Istifadəçi adı</b> - <?php echo $row['username']; ?></h4> </a>
+  <a href="#" class="list-group-item"><h4><b>Email ünvani</b> - <?php echo $row['adress']; ?></h4></a>
+  <a href="#" class="list-group-item"><h4><b>Mobil nömrə</b> - <?php echo $row['anumber']; ?></h4> </a>
+  <a href="#" class="list-group-item"><h4><b>İxtisas qrupu</b> - <?php echo $row['student_group']; ?></h4></a>
+  <a href="#" class="list-group-item"><h4><b>Parol</b> - <?php echo $row['password']; ?></h4></a>
+
+ <!-- burda qisa yazmag olardi -->
+<a href="#" class="list-group-item " id="list"  value=""><h4><b>Seçilən fənnlər</b></h4>
+<?php
+
+$id = $_GET['id'];
+$con =new PDO("mysql:host=localhost;dbname=education",'root','');
+$sql = "CALL students_fenn($id)";
+$result = $con->prepare($sql);
+
+$result->setFetchMode(PDO::FETCH_ASSOC);
+$result->execute();
+while($values=$result->fetch())
+{
+  
+  print_r($values['name']." ".$values['price']."Azn"."<br>");
+  
+}
+?> 
+
+  </a>
+
+
+  <a href="#" class="list-group-item " id="summ"  value=""><h4><b>Seçilən fənnlərin cemi qiymeti</b></h4>
+<?php
+$id = $_GET['id'];
+$con =new PDO("mysql:host=localhost;dbname=education",'root','');
+$sql = "CALL kurs_qiymeti($id)";
+$result = $con->prepare($sql);
+
+$result->setFetchMode(PDO::FETCH_ASSOC);
+$result->execute();
+while($values=$result->fetch())
+{
+  print_r($values['qiymet']."Azn"."<br>");
+}
+?> 
+  </a>
+  <!-- buraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+
+
+
+
+
+
+
 </div>
 
 <form action="" method="post">

@@ -78,7 +78,6 @@ if ($user[0]->type) {
        <th>Parol</th>
         <th>istifadəçi adı</th>
          <th>İxtisas qrupu</th>
-
          <th>Status</th>
          <th>Redaktə</th>
     </tr>
@@ -88,6 +87,7 @@ if ($user[0]->type) {
 <h1>Qeydiyyatdan  keçən tələbələr</h1>
 <a href="register.php" class="btn btn-danger " >Logout</a>
 <?php
+
 $query= mysqli_query($db_connection,$sql);
 
 while ($row  = mysqli_fetch_assoc($query)){
@@ -131,17 +131,19 @@ while ($row  = mysqli_fetch_assoc($query)){
    
 
 <div class="list-group ">
-  <a href="#" class="list-group-item  "><h3><b>Ad</b> - <?= $user[0]->name ?></h3></a>
-  <a href="#" class="list-group-item "><h3><b>Istifadəçi adı</b> - <?= $user[0]->username ?></h3> </a>
-  <a href="#" class="list-group-item "><h3><b>Email ünvani</b> - <?= $user[0]->adress ?></h3></a>
-  <a href="#" class="list-group-item "><h3><b>Mobil nömrə</b> - <?= $user[0]->anumber ?></h3> </a>
-  <a href="#" class="list-group-item "><h3><b>İxtisas qrupu</b> - <?= $user[0]->student_group ?></h3></a>
+  <a href="#" class="list-group-item  "><h4><b>Ad</b> - <?= $user[0]->name ?></h4></a>
+  <a href="#" class="list-group-item "><h4><b>Istifadəçi adı</b> - <?= $user[0]->username ?></h4> </a>
+  <a href="#" class="list-group-item "><h4><b>Email ünvani</b> - <?= $user[0]->adress ?></h4></a>
+  <a href="#" class="list-group-item "><h4><b>Mobil nömrə</b> - <?= $user[0]->anumber ?></h4> </a>
+  <a href="#" class="list-group-item "><h4><b>İxtisas qrupu</b> - <?= $user[0]->student_group ?></h4></a>
 
-	<a href="#" class="list-group-item " id="list"  value="<?=$user[0]->id?>"><h3><b>Seçilən fənnlər</b></h3>
+	<a href="#" class="list-group-item " id="list"  value="<?=$user[0]->id?>"><h4><b>Seçilən fənnlər</b></h4>
+	</a>
+	<a href="#" class="list-group-item " id="summ"  value="<?=$user[0]->id?>"><h4><b>Seçilən fənnlərin cemi qiymeti</b></h4>
 	</a>
 	</div>
 
-<script type="text/javascript">
+								<script type="text/javascript">
 									$(document).ready(function($) {
 											var val = $('#list').attr('value');
 											$.ajax({
@@ -150,6 +152,21 @@ while ($row  = mysqli_fetch_assoc($query)){
 												data: {id: val},
 												success:function(data){
 													$('#list').append(data)
+												}
+											})
+											
+										})
+								
+								</script>
+								<script type="text/javascript">
+									$(document).ready(function($) {
+											var val = $('#summ').attr('value');
+											$.ajax({
+												url: 'summ_fenn.php',
+												type: 'GET',
+												data: {id: val},
+												success:function(data){
+													$('#summ').append(data)
 												}
 											})
 											
@@ -182,14 +199,7 @@ if(isset($_POST["back"])) {
 ?>
 <!-- 777777777777777777777777777777777777777777777777777777777777777777777 -->
 
-<!-- 
-<?php
-$sql = "CALL kurs_qiymeti($user[0]->id)";
-$result = $con->prepare($sql);
 
-$result->setFetchMode(PDO::FETCH_ASSOC);
-$result->execute();
-?> -->
 
 
 
