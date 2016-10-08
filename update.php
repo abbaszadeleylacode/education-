@@ -8,20 +8,20 @@
 </head>
 <body>
 
-<div class="col-md-8 col-md-offset-2">
-  <h3><b>Istifadəçinin məlumatlarını dəyiş<b></h3>
+<div class="container-fluid text-center">
+  <h3 ><b>Istifadəçinin məlumatlarını dəyiş<b></h3>
  </div>
-  <div class="col-md-6 col-md-offset-3">
+  <div class="container">
  
-      <div class="col-md-6">
+      <div class="container-fluid">
 		  <form method="post" action="">
-			 <input type="text" name="forname" placeholder="Ad " class="form-control">     
-			 <input type="text" name="foradress" placeholder="email" class="form-control">  
-			 <input type="text" name="foranumber" placeholder="nomre" class="form-control">
-			 	 <input type="text" name="forpassword" placeholder="parol" class="form-control">   
-			 	 <input type="text" name="forusername" placeholder="istifadeci adi" class="form-control"> 
-			 	 <input type="text" name="forstudent_group" placeholder="ixtisas qrupu" class="form-control"> 
-			 <input class="  button" type="submit" value="update" name="submit"> <input class="button" type="submit" value="back" name="submit" >
+			 <input type="text" name="forname" placeholder="Ad " class="form-control input-lg">     
+			 <input type="text" name="foradress" placeholder="email" class="form-control input-lg">  
+			 <input type="text" name="foranumber" placeholder="nomre" class="form-control input-lg">
+			 	 <input type="text" name="forpassword" placeholder="parol" class="form-control input-lg">   
+			 	 <input type="text" name="forusername" placeholder="istifadeci adi" class="form-control input-lg"> 
+			 	 <input type="text" name="forstudent_group" placeholder="ixtisas qrupu" class="form-control input-lg"> 
+			 <input class="btn-success  button" type="submit" value="update" name="submit"> <input class="button pull-right btn-danger" type="submit" value="back" name="submit" >
 		  </form>
       </div>
     

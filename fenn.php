@@ -8,8 +8,7 @@ $query=mysqli_query($db_connection,$sql);
 
 while ($row = mysqli_fetch_assoc($query)) {?>
 <label class="">
-
-<input type="checkbox" name="ders[]" value="<?=$row['id']?>" style="display:block">
+<input type="checkbox" name="ders[]" value="<?=$row['id']?>" class="checkbox-inline">
 <?=$row['name']." ".$row['ders_qiymeti']."Azn".' ';?>
 </label>
 

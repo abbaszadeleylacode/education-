@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 	<head>
@@ -7,97 +8,87 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		
-		<div class="container">
-			<div class="row">
-				<div class="loginFormRegister">
-					<!-- 	<img src="no-image.png" class="img-circle"> -->
-					<h3>Tələbə qeydiyyatı</h3>
-					
-					<form  class="form-inline" action="" method="POST">
-						<div class="col-md-4 ">
-							<div class="form-group">
-								
-								<input placeholder="name" class="form-control" type="text" name="name">
-								
-							</div><br>
-							<div class="form-group">
-								
-								<input placeholder="username" class="form-control" type="text" name="username"><br />
-							</div><br>
-							<div class="form-group">
-								
-								<input placeholder="email" class="form-control" type="text" name="adress"><br />
-							</div><br>
-							<div class="form-group">
-								
-								<input placeholder="number" class="form-control" type="text" name="anumber"><br />
-							</div><br>
+		<div class="panel panel-success">
+			<div class="panel-heading text-center" ><h4 >Tələbə qeydiyyatı</h4></div>
+			<div class="panel-body">
+				<div class="container">
+					<div class="row">
+						<div class="loginFormRegister">
+							<!-- 	<img src="no-image.png" class="img-circle"> -->
+							<!-- 	<h3>Tələbə qeydiyyatı</h3> -->
 							
-							
-							
-							<div class="form-group">
-								
-								<input placeholder="parol" class="form-control" type="password" name="pass"><br />
-							</div><br><br>
-							<div class="form-group">
-								<select class="form-control"  name="group" id="group">
-									<optgroup value="0" label="Abituriyent">
-										<option value="1">I qrup</option>
-										<option value="2">II qrup</option>
-										<option value="3">III qrup</option>
-										<option value="4">VI qrup</option>
-									</optgroup>
-								</select>
-							</div><br>
-						</div>
-						<script type="text/javascript">
-							jQuery(document).ready(function($) {
-								$('#group').change(function(){
-									var val = $(this).val();
-
-									$.ajax({
-										url: 'fenn.php',
-										type: 'GET',
-							
-										data: {value: val},
-										success:function(data){
-											$('.checkBox').empty();
-											$('.checkBox').append(data);
-										}
-									})
+							<form   action="" method="POST">
+								<!-- 	<div class="col-md-4 "> -->
+								<div class="form-group">
+									<input placeholder="Ad"  class="form-control input-lg"  type="text" name="name">
+								</div>
+								<div class="form-group">
+									<input placeholder="Istifadəçi adı" class="form-control input-lg" type="text" name="username">
+								</div>
+								<div class="form-group">
+									<input placeholder="E-mail ünvanı" class="form-control input-lg" type="text" name="adress">
+								</div>
+								<div class="form-group">
+									<input placeholder="Mobil nömrə" class="form-control input-lg" type="text" name="anumber">
+								</div>
+								<div class="form-group">
+									<input placeholder="Parol" class="form-control input-lg" type="password" name="pass">
+								</div>
+								<div class="form-group">
+									<select class="form-control input-lg"  name="group" id="group">
+										<optgroup value="0" label="Abituriyent">
+											<option value="1">I qrup</option>
+											<option value="2">II qrup</option>
+											<option value="3">III qrup</option>
+											<option value="4">VI qrup</option>
+										</optgroup>
+									</select>
+								</div>
+								<script type="text/javascript">
+									jQuery(document).ready(function($) {
+										$('#group').change(function(){
+											var val = $(this).val();
+											$.ajax({
+												url: 'fenn.php',
+												type: 'GET',
 									
-								})
-							});
-						</script>
-						<div class="col-md-3">
-							<div class="form-group checkBox">
-								<!-- <?php
-								include 'db_config.php';
-								$sql = "CALL `ders_cedveli`(1)";
-								$query=mysqli_query($db_connection,$sql);
-								while ($row = mysqli_fetch_assoc($query)) {?>
-								<?=$row['name']." ".$row['ders_qiymeti']."Azn".' ';?>
-								<input type="checkbox" name="ders[]" value="<?=$row['id']?>"><br/>
-								<?php };
-								$query= mysqli_query($db_connection,$sql);
-								?> -->
-								
-							</div>
-							<div class="form-group">
-								<input type="submit" class="btn btn-success" value="Qeydiyyat" name="submit" /><br>
-							</div><br><br>
-							<div class="form-group">
-								<a href="login.php" class="btn btn-primary">Login</a>
-							</div><br><br><br>
+												data: {value: val},
+												success:function(data){
+													$('.checkBox').empty();
+													$('.checkBox').append(data);
+												}
+											})
+											
+										})
+									});
+								</script>
+								<!-- checkbox gelir -->
+								<div class="form-group">
+									<div class=" checkBox ">
+								    </div>
+								</div>
+								<!-- checkbox son -->
+								<div class="form-group">
+									<input  type="submit" class="btn btn-success" value="Qeydiyyat" name="submit">
+								</div>
+								<div class="form-group">
+
+								<a href="login.php"><input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="Login" ></a>
+								</div>
+							</form>
 						</div>
-					</form>
+					</div>
+					
 				</div>
 			</div>
-			
 		</div>
+		
+		
 		<?php
 		if(isset($_POST["submit"])){
 			
@@ -140,5 +131,6 @@
 		}
 		}
 		?>
+
 	</body>
 </html>

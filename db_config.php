@@ -8,7 +8,7 @@
 	$password = "";
 	$db_name = "education";
 	$db_connection = mysqli_connect($host,$user_name,$password,$db_name);
-    // 
+    // $query=mysqli_query($db_connection,$sql);
 		// if ($query==false) {
 		// 	echo "qosulmadi"; 
 		// }else{

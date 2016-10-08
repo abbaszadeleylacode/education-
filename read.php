@@ -29,19 +29,21 @@ echo $row['name'];
   ?>
 </head>
 <body>
-<div class="container">
-  <h1 style="color: orange">Tələbənin məlumatları</h1>
+<div class="container-fluid">
+  <h1 style="color: orange" class="text-center">Tələbənin məlumatları</h1>
   <div class="col-md-6 col-md-offset-3" style="margin-top: 50px; ">
 
-  <h2>Ad -<?php echo $row['name']; ?></h2>
-  <h2>Email Adres - <?php echo $row['adress']; ?></h2>
-  <h2>Mobile Nömrə - <?php echo $row['anumber']; ?></h2>
-  <h2>Parol - <?php echo $row['password']; ?></p>
-  <h2>istifadəçi adı - <?php echo $row['username']; ?></h2>
-  <h2>İxtisas qrupu - <?php echo $row['student_group']; ?></h2>
+  <div class="list-group ">
+  <a href="#" class="list-group-item "><h3><b>Ad</b> - <?php echo $row['name']; ?></h3></a>
+  <a href="#" class="list-group-item"><h3><b>Istifadəçi adı</b> - <?php echo $row['username']; ?></h3> </a>
+  <a href="#" class="list-group-item"><h3><b>Email ünvani</b> - <?php echo $row['adress']; ?></h3></a>
+  <a href="#" class="list-group-item"><h3><b>Mobil nömrə</b> - <?php echo $row['anumber']; ?></h3> </a>
+  <a href="#" class="list-group-item"><h3><b>İxtisas qrupu</b> - <?php echo $row['student_group']; ?></h3></a>
+  <a href="#" class="list-group-item"><h3><b>Parol</b> - <?php echo $row['password']; ?></h3></a>
+</div>
 
 <form action="" method="post">
-  <input class="btn btn-default create" name="back" type="submit" value="Back" >
+  <input class="btn btn-danger create pull-right" name="back" type="submit" value="Back" >
 </form>
   </div>
 

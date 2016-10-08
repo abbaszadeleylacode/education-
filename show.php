@@ -23,6 +23,7 @@ else{
 
 
 <link rel="stylesheet" href="assets/css/style.css">
+<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <style>
 
 .create{
@@ -60,7 +61,7 @@ include "db_config.php";
 </head>
 
 <body>
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 
 
@@ -77,6 +78,7 @@ if ($user[0]->type) {
        <th>Parol</th>
         <th>istifadəçi adı</th>
          <th>İxtisas qrupu</th>
+
          <th>Status</th>
          <th>Redaktə</th>
     </tr>
@@ -84,7 +86,7 @@ if ($user[0]->type) {
 
   <tbody>
 <h1>Qeydiyyatdan  keçən tələbələr</h1>
-<a href="register.php" class="btn btn-primary " >Logout</a>
+<a href="register.php" class="btn btn-danger " >Logout</a>
 <?php
 $query= mysqli_query($db_connection,$sql);
 
@@ -119,18 +121,47 @@ while ($row  = mysqli_fetch_assoc($query)){
   ?>
 </head>
 
-  <h1 style="color: orange">Şəxsi məlumatlar</h1>
+  <h1 style="color: orange" class="text-center">Şəxsi məlumatlar</h1>
   <div class="col-md-6 col-md-offset-3" style="margin-top: 50px; ">
 
-  <h2>Ad - <?= $user[0]->name ?></h2>
-  <h2>Istifadəçi adı - <?= $user[0]->username ?></h2>
-  <h2>Email ünvani - <?= $user[0]->adress ?></h2>
-   <h2>Mobil nömrə - <?= $user[0]->anumber ?></h2>
-   <h2>İxtisas qrupu - <?= $user[0]->student_group ?></h2>
+  
+  
+  
+   
+   
+
+<div class="list-group ">
+  <a href="#" class="list-group-item  "><h3><b>Ad</b> - <?= $user[0]->name ?></h3></a>
+  <a href="#" class="list-group-item "><h3><b>Istifadəçi adı</b> - <?= $user[0]->username ?></h3> </a>
+  <a href="#" class="list-group-item "><h3><b>Email ünvani</b> - <?= $user[0]->adress ?></h3></a>
+  <a href="#" class="list-group-item "><h3><b>Mobil nömrə</b> - <?= $user[0]->anumber ?></h3> </a>
+  <a href="#" class="list-group-item "><h3><b>İxtisas qrupu</b> - <?= $user[0]->student_group ?></h3></a>
+
+	<a href="#" class="list-group-item " id="list"  value="<?=$user[0]->id?>"><h3><b>Seçilən fənnlər</b></h3>
+	</a>
+	</div>
+
+<script type="text/javascript">
+									$(document).ready(function($) {
+											var val = $('#list').attr('value');
+											$.ajax({
+												url: 'qrup_fenn.php',
+												type: 'GET',
+												data: {id: val},
+												success:function(data){
+													$('#list').append(data)
+												}
+											})
+											
+										})
+								
+								</script>
+
+
 
 
 <form action="" method="post">
-  <input class="btn btn-default create" name="back" type="submit" value="Back" >
+  <input class="btn btn-danger pull-right " name="back" type="submit" value="Back" >
 </form>
   </div>
 
@@ -142,7 +173,7 @@ while ($row  = mysqli_fetch_assoc($query)){
 
 if(isset($_POST["back"])) {
   
-  header("Location:login.php");
+  header("Location:register.php");
 }
 
 
@@ -151,6 +182,14 @@ if(isset($_POST["back"])) {
 ?>
 <!-- 777777777777777777777777777777777777777777777777777777777777777777777 -->
 
+<!-- 
+<?php
+$sql = "CALL kurs_qiymeti($user[0]->id)";
+$result = $con->prepare($sql);
+
+$result->setFetchMode(PDO::FETCH_ASSOC);
+$result->execute();
+?> -->
 
 
 
